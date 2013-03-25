@@ -1,10 +1,10 @@
 require 'redmine'
-
+require_dependency 'scrum_cards/hooks'
 Redmine::Plugin.register :redmine_scrum_cards do
   name 'Redmine Scrum Cards plugin'
-  author 'Author name'
-  description 'This is a plugin for Redmine'
+  author 'Evgeny Tataurov'
+  description 'Redmine plugin for generating printable scrum board cards'
   version '0.0.1'
-  url 'http://example.com/path/to/plugin'
-  author_url 'http://example.com/about'
+  url ''
+  author_url ''
 end
