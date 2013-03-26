@@ -1,4 +1,6 @@
 require 'redmine'
+require 'rubygems'
+require "prawn"
 require_dependency 'scrum_cards/hooks'
 Redmine::Plugin.register :redmine_scrum_cards do
   name 'Redmine Scrum Cards plugin'
