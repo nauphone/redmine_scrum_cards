@@ -14,6 +14,7 @@ class CardsController < ApplicationController
       r_i = counter
       pdf.grid(r_i,c_i).bounding_box do
         pdf.stroke_bounds
+	# TODO count numbers from grid size
 	pdf.move_down 16
 	pdf.font("#{Prawn::BASEDIR}/data/fonts/DejaVuSans.ttf") do
 	  pdf.text issue.subject, :align => :center, :size => 18
@@ -28,7 +29,7 @@ class CardsController < ApplicationController
         counter = 0
       end
     end
-    filename = @issues.map{|x| User.find(x.assigned_to_id).login}.uniq.join("_")
+    filename = @issues.map{ |x| unless x.assigned_to_id.nil? then User.find(x.assigned_to_id).login end }.compact.uniq.join("_")
     respond_to do |format|
       format.pdf { send_data(pdf.render, :type => 'application/pdf', :filename => "#{filename}.pdf") }
     end
