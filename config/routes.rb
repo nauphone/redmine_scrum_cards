@@ -1,3 +1,3 @@
-ActionController::Routing::Routes.draw do |map|
-  map.connect 'cards', :controller => 'cards', :action => 'index'
+RedmineApp::Application.routes.draw do
+  get 'cards', :to => 'cards#index'
 end

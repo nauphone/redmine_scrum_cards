@@ -4,5 +4,5 @@
 	<%= watcher_tag(@issue, User.current) %>
 	<%= link_to_if_authorized l(:button_copy), {:controller => 'issues', :action => 'new', :project_id => @project, :copy_from => @issue}, :class => 'icon icon-copy' %>
 	<%= link_to l(:button_delete), issue_path(@issue), :confirm => issues_destroy_confirmation_message(@issue), :method => :delete, :class => 'icon icon-del' if User.current.allowed_to?(:delete_issues, @project) %> | 
-	<%= link_to l(:scrum_card), {:controller => 'cards', :action => 'index', :ids => [@issue.id]} %>
+	<%= link_to l(:scrum_card), {:controller => 'cards', :action => 'index', :ids => [@issue.id], :format => 'pdf'} %>
 </div>
