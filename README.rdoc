@@ -1,3 +1,11 @@
-= scrum_cards
+= Redmine Scrum cards plugin
 
-Description goes here
+Plugin adds the ability to generate PDF with cards from issues
+
+Each issue card includes issue id, issue subject and issue estimated_hours
+
+PDF can be downloaded from issue page, or from dropdown menu in issues list
+
+It's compatible with redmine 1.4
+
+branch redmine2 compatible with redmine 2.3
