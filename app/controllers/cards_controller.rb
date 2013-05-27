@@ -20,9 +20,13 @@ class CardsController < ApplicationController
 
 	pdf.font("#{Prawn::BASEDIR}/data/fonts/DejaVuSans.ttf") do
 	  pdf.text issue.subject, :align => :center, :size => 18
-	end
-	pdf.text_box(issue.id.to_s, :at => [5, 20], :size => 20)
-	pdf.text_box(issue.estimated_hours.to_s, :at => [133, 20], :size => 20, :align => :right, :width => 60)
+	  pdf.text_box(issue.id.to_s, :at => [5, 20], :size => 20)
+          if issue.parent_issue_id.to_s != ''
+            pdf.text_box("p" + issue.parent_issue_id.to_s, :at => [8, 30], :size => 10)
+          end
+	  pdf.text_box(issue.estimated_hours.to_s, :at => [133, 34], :size => 20, :align => :right, :width => 60)
+	  pdf.text_box(issue.project.to_s, :at => [50, 13], :size => 10, :align => :right, :width => 143)
+        end
       end
 
       counter += 1 if c_i == COLUMNS - 1
